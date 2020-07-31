@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.dao.UserDao">
+    <resultMap type="User" id="UserresultMap">
+        <id property="userid" column="Userid"/>
+        <result property="name" column="Name"/>
+        <result property="Sex" column="sex"/>
+        <result property="Dress" column="dress"></result>
+    </resultMap>
+    <select id="list" parameterType="User" resultMap="UserresultMap">
+        select * from user
+    </select>
+
+    <select id="findbygradeid" parameterType="Integer" resultMap="StudentResult">
+        select *from student where gid=#{gid}
+    </select>
+</mapper>
